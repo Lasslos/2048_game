@@ -185,7 +185,11 @@ def move(direction, board):
                         board[i][3 - j + shift] = 0
                         merged[i][4 - j + shift] = True
 
-    immovable = not any(True for row in merged for _ in row)
+    immovable = False
+    for i in merged:
+        if True in i:
+            immovable = True
+
     print(immovable)
     return board, immovable
 
